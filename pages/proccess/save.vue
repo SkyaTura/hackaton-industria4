@@ -1,9 +1,7 @@
 <template lang="pug">
   AppCard(style="margin-top: 48px; flex: 100%")
     section.card-content
-      .input-group
-        label Descrição do processo
-        input
+      AppText(label="Nome do processo")
 
       .select-group
         label
@@ -15,13 +13,14 @@
 
 <script>
   import AppCard from '~/components/AppCard.vue'
-  import { AppButton } from '~/components/input'
+  import { AppButton, AppText } from '~/components/input'
 
   export default {
     name: 'create',
     components: {
       AppCard,
-      AppButton
+      AppButton,
+      AppText
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
@@ -34,5 +33,5 @@
 </script>
 
 <style scoped>
-  .input-group
+
 </style>
