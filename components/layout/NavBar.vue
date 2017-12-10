@@ -18,7 +18,7 @@
     color: white;
     font-weight: bold;
     min-height: 55px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     padding: 0 16px;
     height: 64px;

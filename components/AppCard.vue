@@ -19,7 +19,7 @@
     max-width: 900px;
     width: 90vw;
   }
-  .card > * {
+  .card > *:not(.card-noPadding) {
     padding: 16px;
   }
 </style>
