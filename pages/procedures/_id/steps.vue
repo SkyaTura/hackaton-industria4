@@ -1,11 +1,11 @@
 <template lang="pug">
   .cards
-    template(v-for="item,key in items")
+    template(v-for="item,key in procedure.steps")
       AppCard(:key="key", style="display: flex; margin: 7px auto;")
         header.card-header
           span {{ key.toString().padLeft(2, '0') }}
         section.card-content
-          p Lorem ipsum dolor sit amet, et velit adipiscing amet. Dolor eget elit, faucibus mattis dolor vestibulum urna. Ligula vulputate ut, donec rutrum luctus, tincidunt est, ligula tincidunt auctor posuere modi eu.
+          p {{ item.text }}
 </template>
 
 <script>
@@ -16,17 +16,21 @@
     components: {
       AppCard
     },
-    data () {
-      return {
-        items: []
-      }
-    },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
         element: 'pageContent',
         style: 'background-color',
         value: '#373e4e'
       })
+      const { id } = this
+      this.$store.dispatch('steps/fetchData', id)
+    },
+    computed: {
+      procedure () {
+        const { id } = this
+        const items = this.$store.state.procedures.items
+        return items[id] || {}
+      }
     }
   }
 </script>

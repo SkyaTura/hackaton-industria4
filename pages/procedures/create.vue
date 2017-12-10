@@ -1,9 +1,10 @@
 <template lang="pug">
   AppCard.createStep(style="margin-top: 48px; flex: 100%")
     header.card-header.card-noPadding
-      AppButton.headerAction <
+      AppButton.headerAction.headerAction-back <
       AppButton.headerIndex 01
-      AppButton.headerAction +
+      AppButton.headerAction(@click="addStep")
+        i.material-icons add
     section.card-content
       textarea(
         id="stepInstructions",
@@ -12,11 +13,15 @@
       )
     footer.card-footer.card-noPadding
       .mediaButtons
-        AppButton.button-flat A
-        AppButton.button-flat B
-        AppButton.button-flat C
+        AppButton.button-flat
+          i.material-icons attach_file
+        AppButton.button-flat
+          i.material-icons camera_alt
+        AppButton.button-flat
+          i.material-icons link
       .recordButton
-        AppButton M
+        AppButton
+          i.material-icons mic
 </template>
 
 <script>
@@ -39,11 +44,21 @@
       AppText
     },
     mounted () {
-      this.$store.dispatch('layout/setStyle', {
+      const { $store } = this
+      $store.dispatch('layout/setStyle', {
         element: 'pageContent',
         style: 'background-color',
         value: '#373e4e'
       })
+    },
+    methods: {
+      addStep () {
+        const { text } = this
+        const step = {
+          text
+        }
+        this.$store.dispatch('procedures/createProcedure', step)
+      }
     }
   }
 </script>
@@ -95,14 +110,18 @@
   .card-footer {
     padding: 8px;
   }
-  .card-footer > * {
-    flex: 50%;
+  .mediaButtons {
+    flex: 70%;
   }
   .recordButton {
+    flex: 30%;
     text-align: right;
   }
   textarea {
     resize: none;
     flex: 100%;
+  }
+  .headerAction-back {
+    visibility: hidden;
   }
 </style>
