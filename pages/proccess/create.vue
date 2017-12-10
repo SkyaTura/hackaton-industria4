@@ -5,7 +5,11 @@
       AppButton.headerIndex 01
       AppButton.headerAction +
     section.card-content
-      textarea
+      textarea(
+        id="stepInstructions",
+        placeholder="Instruções",
+        v-model="text"
+      )
     footer.card-footer.card-noPadding
       .mediaButtons
         AppButton.button-flat A
@@ -17,13 +21,22 @@
 
 <script>
   import AppCard from '~/components/AppCard.vue'
-  import { AppButton } from '~/components/input'
+  import {
+    AppButton,
+    AppText
+  } from '~/components/input'
 
   export default {
     name: 'create',
+    data () {
+      return {
+        text: ''
+      }
+    },
     components: {
       AppCard,
-      AppButton
+      AppButton,
+      AppText
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
@@ -68,6 +81,8 @@
   .card-content {
     flex: 100%;
     margin-top: -32px;
+    display: flex;
+    flex-direction: column;
   }
   .card-footer {
     background: white;
@@ -85,5 +100,9 @@
   }
   .recordButton {
     text-align: right;
+  }
+  textarea {
+    resize: none;
+    flex: 100%;
   }
 </style>
