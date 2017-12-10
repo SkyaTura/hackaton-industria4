@@ -1,45 +1,12 @@
 <template lang="pug">
-  AppCard(style="margin-top: 48px; flex: 100%")
+  AppCard.createStep(style="margin-top: 48px; flex: 100%")
     header.card-header.card-noPadding
       AppButton.headerAction <
       AppButton.headerIndex 01
       AppButton.headerAction +
     section.card-content
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-    footer.card-footer
+      textarea
+    footer.card-footer.card-noPadding
       .mediaButtons
         AppButton.button-flat A
         AppButton.button-flat B
@@ -99,6 +66,7 @@
     width: 32px;
   }
   .card-content {
+    flex: 100%;
     margin-top: -32px;
   }
   .card-footer {
@@ -108,6 +76,9 @@
     display: flex;
     position: sticky;
     border-radius: 0 0 5px 5px;
+  }
+  .card-footer {
+    padding: 8px;
   }
   .card-footer > * {
     flex: 50%;
