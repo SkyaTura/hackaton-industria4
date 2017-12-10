@@ -1,12 +1,12 @@
 <template lang="pug">
   .cards
     AppFAB add
-    each value in [1,2,3,4,5]
-      AppCard.process-card
+    template(v-for="item,key in items")
+      AppCard.process-card(:key="key")
         header.card-header
-          span Area 01
+          span {{ item.title }}
         section.card-content
-          p Lorem ipsum dolor sit amet, et velit adipiscing amet.
+          p {{ item.text }}
 </template>
 
 <script>
@@ -25,6 +25,14 @@
         style: 'background-color',
         value: '#373e4e'
       })
+    },
+    created () {
+      this.$store.dispatch('procedures/fetchData')
+    },
+    computed: {
+      items () {
+        return this.$store.state.procedures.items
+      }
     }
   }
 </script>
