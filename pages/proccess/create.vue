@@ -1,9 +1,9 @@
 <template lang="pug">
   AppCard(style="margin-top: 48px; flex: 100%")
     header.card-header.card-noPadding
-      h2 <
-      h1 01
-      h2 +
+      AppButton.headerAction <
+      AppButton.headerIndex 01
+      AppButton.headerAction +
     section.card-content
       p asoaskdpokaospkd
       p asoaskdpokaospkd
@@ -72,20 +72,6 @@
   .pageContent {
     background: #373e4e;
   }
-  .card-header h1,
-  .card-header h2 {
-    align-items: center;
-    background-color: #ffca12;
-    border-radius: 50%;
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.5);
-    color: white;
-    display: flex;
-    font-size: 24px;
-    font-weight: bold;
-    height: 64px;
-    justify-content: center;
-    width: 64px;
-  }
   .card-header {
     align-items: center;
     display: flex;
@@ -97,11 +83,19 @@
     top: 64px;
     transform: translateY(-50%);
   }
-  .card-header h2 {
+  .card-header .headerAction,
+  .card-header .headerIndex {
+    font-size: 24px;
+    font-weight: bold;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
+  }
+  .card-header .headerAction {
     background-color: #fc7100;
     font-weight: 400;
     height: 32px;
-    margin: 12px 12px;
+    margin: 0 6px;
     width: 32px;
   }
   .card-content {
