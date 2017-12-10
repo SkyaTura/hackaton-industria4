@@ -31,7 +31,7 @@
     },
     computed: {
       items () {
-        return this.$store.state.procedures.items
+        return this.$store.state.index.procedure.steps
       }
     }
   }

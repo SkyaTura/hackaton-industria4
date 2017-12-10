@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$props" class="button">
+  <button v-bind="$props" class="button" @click="event => $emit('click', event)">
     <slot></slot>
   </button>
 </template>
