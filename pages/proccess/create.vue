@@ -1,45 +1,16 @@
 <template lang="pug">
-  AppCard(style="margin-top: 48px; flex: 100%")
+  AppCard.createStep(style="margin-top: 48px; flex: 100%")
     header.card-header.card-noPadding
-      h2 <
-      h1 01
-      h2 +
+      AppButton.headerAction <
+      AppButton.headerIndex 01
+      AppButton.headerAction +
     section.card-content
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-      p asoaskdpokaospkd
-    footer.card-footer
+      textarea(
+        id="stepInstructions",
+        placeholder="Instruções",
+        v-model="text"
+      )
+    footer.card-footer.card-noPadding
       .mediaButtons
         AppButton.button-flat A
         AppButton.button-flat B
@@ -50,13 +21,22 @@
 
 <script>
   import AppCard from '~/components/AppCard.vue'
-  import { AppButton } from '~/components/input'
+  import {
+    AppButton,
+    AppText
+  } from '~/components/input'
 
   export default {
     name: 'create',
+    data () {
+      return {
+        text: ''
+      }
+    },
     components: {
       AppCard,
-      AppButton
+      AppButton,
+      AppText
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
@@ -72,20 +52,6 @@
   .pageContent {
     background: #373e4e;
   }
-  .card-header h1,
-  .card-header h2 {
-    align-items: center;
-    background-color: #ffca12;
-    border-radius: 50%;
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.5);
-    color: white;
-    display: flex;
-    font-size: 24px;
-    font-weight: bold;
-    height: 64px;
-    justify-content: center;
-    width: 64px;
-  }
   .card-header {
     align-items: center;
     display: flex;
@@ -97,15 +63,26 @@
     top: 64px;
     transform: translateY(-50%);
   }
-  .card-header h2 {
+  .card-header .headerAction,
+  .card-header .headerIndex {
+    font-size: 24px;
+    font-weight: bold;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
+  }
+  .card-header .headerAction {
     background-color: #fc7100;
     font-weight: 400;
     height: 32px;
-    margin: 12px 12px;
+    margin: 0 6px;
     width: 32px;
   }
   .card-content {
+    flex: 100%;
     margin-top: -32px;
+    display: flex;
+    flex-direction: column;
   }
   .card-footer {
     background: white;
@@ -115,10 +92,17 @@
     position: sticky;
     border-radius: 0 0 5px 5px;
   }
+  .card-footer {
+    padding: 8px;
+  }
   .card-footer > * {
     flex: 50%;
   }
   .recordButton {
     text-align: right;
+  }
+  textarea {
+    resize: none;
+    flex: 100%;
   }
 </style>

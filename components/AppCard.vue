@@ -15,6 +15,8 @@
     background: white;
     border-radius: 5px;
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
     margin: 16px auto;
     max-width: 900px;
     width: 90vw;

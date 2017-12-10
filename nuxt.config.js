@@ -17,6 +17,7 @@ module.exports = {
    * Load CSS
    */
   css: [
+    'materialize-css/dist/css/materialize.min.css',
     '~/css/reset.css'
   ],
   /*

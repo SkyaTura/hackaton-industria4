@@ -1,9 +1,9 @@
 <template lang="pug">
   .cards
-    each value in [1,2,3,4,5]
-      AppCard(style="display: flex; margin: 7px auto;")
+    template(v-for="item,key in items")
+      AppCard(:key="key", style="display: flex; margin: 7px auto;")
         header.card-header
-          span 01
+          span {{ key.toString().padLeft(2, '0') }}
         section.card-content
           p Lorem ipsum dolor sit amet, et velit adipiscing amet. Dolor eget elit, faucibus mattis dolor vestibulum urna. Ligula vulputate ut, donec rutrum luctus, tincidunt est, ligula tincidunt auctor posuere modi eu.
 </template>
@@ -15,6 +15,11 @@
     name: 'create',
     components: {
       AppCard
+    },
+    data () {
+      return {
+        items: []
+      }
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {

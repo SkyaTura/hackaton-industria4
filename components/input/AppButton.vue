@@ -15,6 +15,7 @@
     background-color: #ffca12;
     border: none;
     border-radius: 50%;
+    color: white;
     display: inline-flex;
     margin: 0 6px;
     align-items: center;
