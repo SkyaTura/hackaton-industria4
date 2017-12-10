@@ -1,5 +1,6 @@
 <template lang="pug">
   .cards
+    AppFAB add
     each value in [1,2,3,4,5]
       AppCard.process-card
         header.card-header
@@ -10,11 +11,13 @@
 
 <script>
   import AppCard from '~/components/AppCard.vue'
+  import {AppFAB} from '~/components/input'
 
   export default {
     name: 'create',
     components: {
-      AppCard
+      AppCard,
+      AppFAB
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
