@@ -26,6 +26,9 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa'
   ],
+  plugins: [
+    '~/plugins/AppFirebase'
+  ],
   /*
   ** Customize the progress bar color
   */
