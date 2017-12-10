@@ -13,13 +13,12 @@
 
 <script>
   import AppCard from '~/components/AppCard.vue'
-  import { AppButton, AppText } from '~/components/input'
+  import { AppText } from '~/components/input'
 
   export default {
-    name: 'create',
+    name: 'save',
     components: {
       AppCard,
-      AppButton,
       AppText
     },
     mounted () {
