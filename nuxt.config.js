@@ -17,6 +17,7 @@ module.exports = {
    * Load CSS
    */
   css: [
+    'materialize-css/dist/css/materialize.min.css',
     '~/css/reset.css'
   ],
   /*
@@ -24,6 +25,9 @@ module.exports = {
    */
   modules: [
     '@nuxtjs/pwa'
+  ],
+  plugins: [
+    '~/plugins/AppFirebase'
   ],
   /*
   ** Customize the progress bar color

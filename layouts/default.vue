@@ -32,8 +32,11 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,700');
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
   body, html {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Roboto', Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;

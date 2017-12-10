@@ -1,0 +1,30 @@
+{
+  "procedures" : {
+    "-L0-CoPtSeUW2gzbWmsa" : {
+      "area" : {
+        "title": "Área de exemplo",
+        "color": "area-magenta"
+      },
+      "steps" : [ {
+        "text" : "Esta é a tela onde você pode ver os detalhes de um processo descrito.\nVocê pode usar a seta acima para navegar entre os passos deste procedimento"
+      }, {
+        "text" : "Um processo pode ter inumeras etapas"
+      }, {
+        "text" : "Experimente clicar na seta de adicionar etapa e insira uma nova informação de teste a este fluxo"
+      } ],
+      "title" : "Processos internos"
+    },
+    "-L0-mjPSbbJcnC-aiPxx" : {
+      "area": {
+        "title": "Outra área",
+        "color": "area-lime"
+      },
+      "steps" : [ {
+        "text" : "Este é um segundo procedimento de testes"
+      }, {
+        "text" : "Segundo passo do segundo exemplo"
+      } ],
+      "title": "Segundo exemplo"
+    }
+  }
+}
