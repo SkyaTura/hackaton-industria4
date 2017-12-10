@@ -1,20 +1,22 @@
 <template lang="pug">
   .cards
-    template(v-for="item,key in procedure.steps")
-      AppCard(:key="key", style="display: flex; margin: 7px auto;")
+    template(v-for="item,key in steps")
+      AppCard(:key="key", style="display: flex; margin: 7px auto; flex-direction: row; align-items: center;")
         header.card-header
-          span {{ key.toString().padLeft(2, '0') }}
+          AppButton.stepIndex {{ (key + 1).toString().padStart(2, '0') }}
         section.card-content
           p {{ item.text }}
 </template>
 
 <script>
   import AppCard from '~/components/AppCard.vue'
+  import { AppButton } from '~/components/input'
 
   export default {
     name: 'create',
     components: {
-      AppCard
+      AppCard,
+      AppButton
     },
     mounted () {
       this.$store.dispatch('layout/setStyle', {
@@ -22,25 +24,30 @@
         style: 'background-color',
         value: '#373e4e'
       })
-      const { id } = this
-      this.$store.dispatch('steps/fetchData', id)
+      this.$store.dispatch('procedures/fetchData')
+    },
+    asyncData ({ params }) {
+      const { id } = params
+      return { id }
     },
     computed: {
       procedure () {
         const { id } = this
         const items = this.$store.state.procedures.items
         return items[id] || {}
+      },
+      steps () {
+        return this.procedure.steps || []
       }
     }
   }
 </script>
 
 <style scoped>
-  .cards{
-    margin-top: 48px;
+  .cards {
     flex: 100%;
   }
-  .card-header span{
+  .card-header span {
     align-items: center;
     background-color: #ffca12;
     border-radius: 50%;
@@ -52,7 +59,19 @@
     justify-content: center;
     width: 64px;
   }
-  .card-content{
+  .stepIndex {
+    font-size: 24px;
+    font-weight: bold;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
+  }
+  .card-content {
     padding: 10px 15px;
+    flex: 100%;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
   }
 </style>

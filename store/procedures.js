@@ -14,6 +14,18 @@ export const mutations = {
       ...state.items,
       ...items
     }
+  },
+  setItems (state, items) {
+    state.items = {
+      ...items
+    }
+  },
+  addProcedureStep (state, { id, text }) {
+    const db = this.$firebase.database()
+    const ref = db.ref(`procedures/${id}`)
+    const procedure = state.items[id]
+    procedure.steps.push({ text })
+    ref.set(procedure)
   }
 }
 
@@ -23,7 +35,7 @@ export const actions = {
     const ref = db.ref('procedures')
     ref.once('value')
       .then(data => data.val())
-      .then(items => commit('addItems', items))
+      .then(items => commit('setItems', items))
   },
   createProcedure ({ commit }, step) {
     const db = this.$firebase.database()
@@ -41,6 +53,9 @@ export const actions = {
       }))
       .then(() => { window.location.href = `/procedures/${newProcedure.key}/steps` })
       .catch(console.log)
+  },
+  addProcedureStep ({ commit }, payload) {
+    commit('addProcedureStep', payload)
   }
 }
 
